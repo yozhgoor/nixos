@@ -33,7 +33,7 @@
       menu = "wofi --show drun";
       fonts = {
         names = ["Jetbrains Mono"];
-	    size = 10.0;
+	      size = 10.0;
       };
       window = {
         border = 0;
@@ -105,7 +105,6 @@
           "bluetooth"
           "backlight"
           "wireplumber"
-          "temperature"
           "cpu"
           "memory"
           "disk"
@@ -133,10 +132,6 @@
           format-icons = [ "" "" "" ];
           on-scroll-up = "";
           on-scroll-down = "";
-          tooltip = false;
-        };
-        "temperature" = {
-          format = "{temperature}°C ";
           tooltip = false;
         };
         "cpu" = {

@@ -10,8 +10,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking
-  networking.hostName = "sanctuary"; # Define your hostname.
-  networking.networkmanager.enable = true;  # Enable NetworkManager.
+  networking.hostName = "sanctuary";
+  networking.networkmanager.enable = true;
   networking.firewall.enable = true;
   networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 

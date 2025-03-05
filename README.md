@@ -6,6 +6,13 @@ This setup uses Nix [Flakes][flakes] and [Home Manager][home-manager]. The main 
 found at [`configuration.nix`](configuration.nix) and the user-specific settings in
 [`home.nix`](home.nix)
 
+## Usage
+
+Rebuild the system:
+```
+sudo nixos-rebuild switch --flake <path_to_repo>
+```
+
 [nixos]: https://nixos.org
 [home-manager]: https://github.com/nix-community/home-manager
 [flakes]: https://nixos.wiki/wiki/flakes
