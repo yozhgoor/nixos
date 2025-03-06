@@ -10,11 +10,6 @@
       ls = "ls --color=auto";
       grep = "grep --color=auto";
     };
-    bashrcExtra = ''
-      [[ $- != *i* ]] && return
-
-      eval "$(starship init bash)"
-    '';
     profileExtra = ''
       if [[ -z $DISPLAY ]] && [[ $(tty) == /dev/tty1 ]]; then
         exec sway
