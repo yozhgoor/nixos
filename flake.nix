@@ -18,7 +18,7 @@
 	        {
             home-manager.useGlobalPkgs = true;
 	          home-manager.useUserPackages = true;
-	          home-manager.users.yozhgoor = import ./home.nix;
+	          home-manager.users.yozhgoor = import ./user;
 	        }
 	      ];
       };
