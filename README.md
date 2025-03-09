@@ -32,6 +32,19 @@ nix-collect-garbage
 The following command deletes old roots, removing the ability to roll back to them:
 ```
 nix-collect-garbage -d
+sudo nix-collect-garbage -d
+```
+
+To delete all historical versions you can use
+```
+sudo nix profile wipe-history
+```
+
+## Optimize
+
+You can manually optimize the store using:
+```
+nix-store --optimise
 ```
 
 [nixos]: https://nixos.org

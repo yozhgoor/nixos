@@ -16,6 +16,7 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@v30
         with:
+          nix_path: nixpgs=channel:nixos-unstable
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build
