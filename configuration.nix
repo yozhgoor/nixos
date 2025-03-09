@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./hardware-configuration.nix # Hardware configuration
+    ./hardware-configuration.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -27,22 +27,6 @@
     noto-fonts
     nerd-fonts.jetbrains-mono
   ];
-
-  # User - Don't forget to create a password with `passwd`.
-  users.users.yozhgoor = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" ];
-  };
-
-  # Enable Neovim
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
-  # Required by Sway
-  security.polkit.enable = true;
-  hardware.graphics.enable = true;
 
   # Enable Bluetooth
   hardware.bluetooth = {
