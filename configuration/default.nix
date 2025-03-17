@@ -1,8 +1,12 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, shared, ... }:
 
 {
   imports = [
-    ./hardware-configuration.nix # Hardware configuration
+    ./hardware-configuration.nix
+    ./neovim.nix
+    
+    ./sway
+    ./user
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -10,7 +14,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking
-  networking.hostName = "sanctuary";
+  networking.hostName = "${shared.hostname}";
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
   networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -24,25 +28,9 @@
 
   # Fonts
   fonts.packages = with pkgs; [
-    noto-fonts
+    liberation_ttf
     nerd-fonts.jetbrains-mono
   ];
-
-  # User - Don't forget to create a password with `passwd`.
-  users.users.yozhgoor = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" ];
-  };
-
-  # Enable Neovim
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
-  # Required by Sway
-  security.polkit.enable = true;
-  hardware.graphics.enable = true;
 
   # Enable Bluetooth
   hardware.bluetooth = {
