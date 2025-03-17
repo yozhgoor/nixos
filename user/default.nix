@@ -13,10 +13,6 @@
   home.username = "yozhgoor";
   home.homeDirectory = "/home/yozhgoor";
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
   home.packages = with pkgs; [
     firefox-wayland
     spotify
