@@ -4,11 +4,12 @@ This repository keep track of my personal [NixOS][nixos] configuration.
 
 This setup uses Nix [Flakes][flakes] and [Home Manager][home-manager].
 
-The main configuration can be found in the [`configuration`][configuration] directory.
-The user-specific configuration is in the [`configuration/user`][user] directory.
-The [sway][sway] configuration is in the [`configuration/sway`][sway-config] directory.
-The [neovim][neovim] configuration is in the [`configuration/neovim`][neovim-config] directory.
-The [`devShell`][devshell] configuration is in the [`configuration/shell.nix`][shell] file
+Structure:
+- [`configuration/default.nix`][configuration]: Main configuration
+- [`configuration/user`][user]: User-specific configuration
+- [`configuration/sway`][sway-config]: Configuration related to [sway][sway]
+- [`configuration/neovim`][neovim-config]: Configuration related to [neovim][neovim]
+- [`configuration/shell.nix`][shell]: Configuration related to development
 
 ## Usage
 
@@ -63,11 +64,11 @@ nix-store --optimise
 [nixos]: https://nixos.org
 [home-manager]: https://github.com/nix-community/home-manager
 [flakes]: https://nixos.wiki/wiki/flakes
-[configuration]: https://github.com/yozhgoor/nixos/blob/main/configuration
-[user]: https://github.com/yozhgoor/nixos/blob/main/configuration/user
 [sway]: https://swaywm.org
-[sway-config]: https://github.com/yozhgoor/nixos/blob/main/configuration/sway
 [neovim]: https://neovim.io
-[neovim-config]: https://github.com/yozhgoor/nixos/blob/main/configuration/neovim
 [devshell]: https://nixos.wiki/wiki/Development_environment_with_nix-shell#nix_develop
+[configuration]: https://github.com/yozhgoor/nixos/blob/main/configuration/default.nix
+[user]: https://github.com/yozhgoor/nixos/blob/main/configuration/user
+[sway-config]: https://github.com/yozhgoor/nixos/blob/main/configuration/sway
+[neovim-config]: https://github.com/yozhgoor/nixos/blob/main/configuration/neovim
 [shell]: https://github.com/yozhgoor/nixos/blob/main/configuration/shell.nix
