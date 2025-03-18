@@ -23,14 +23,6 @@
     home.packages = with pkgs; [
       firefox-wayland
       spotify
-
-      rustup
-      gcc
-      cmake
-
-      cargo-temp
-      cargo-release
-      cargo-rdme
     ];
 
     programs.home-manager.enable = true;

@@ -21,6 +21,7 @@
       system = "x86_64-linux";
       username = "yozhgoor";
     };
+    pkgs = nixpkgs.legacyPackages."${shared.system}";
   in {
     nixosConfigurations.${shared.hostname} = nixpkgs.lib.nixosSystem {
       system = shared.system;
@@ -32,5 +33,6 @@
         inputs.nixvim.nixosModules.nixvim
 	    ];
     };
+    devShells."${shared.system}".default = import ./configuration/shell.nix { inherit pkgs; };
   };
 }
