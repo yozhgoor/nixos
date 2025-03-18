@@ -19,9 +19,9 @@
     settings = {
       add_newline = false;
       character = {
-        format = "[👽](bold #00FF00) ";
-        success_symbol = "[👽](bold green) ";
-        error_symbol = "[👽](bold red) ";
+        format = "[](bold #00FF00) ";
+        success_symbol = "[](bold green) ";
+        error_symbol = "[](bold red) ";
       };
       directory.style = "bold #00FF00";
       git_branch.style = "bold #00FF00";

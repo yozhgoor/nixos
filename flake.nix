@@ -1,27 +1,38 @@
 {
-  description = "Sanctuary's NixOS System";
+  description = "Yozhgoor's NixOS configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ...} @ inputs: {
-    nixosConfigurations = {
-      "sanctuary" = nixpkgs.lib.nixosSystem {
-	      modules = [
-	        ./configuration.nix
-          inputs.home-manager.nixosModules.home-manager
-	        {
-            home-manager.useGlobalPkgs = true;
-	          home-manager.useUserPackages = true;
-	          home-manager.users.yozhgoor = import ./user;
-	        }
-	      ];
-      };
+  outputs = { self, nixpkgs, ... }@inputs: let
+    shared = {
+      hostname = "sanctuary";
+      system = "x86_64-linux";
+      username = "yozhgoor";
     };
+    pkgs = nixpkgs.legacyPackages."${shared.system}";
+  in {
+    nixosConfigurations.${shared.hostname} = nixpkgs.lib.nixosSystem {
+      system = shared.system;
+      specialArgs = { inherit shared; };
+	    modules = [
+	      ./configuration
+
+        inputs.home-manager.nixosModules.home-manager
+        inputs.nixvim.nixosModules.nixvim
+	    ];
+    };
+    devShells."${shared.system}".default = import ./configuration/shell.nix { inherit pkgs; };
   };
 }
