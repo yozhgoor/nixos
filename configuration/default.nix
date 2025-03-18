@@ -51,6 +51,22 @@
     jack.enable = true;
   };
 
+  # Power-management
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+      START_CHARGE_THRESH_BAT0 = 40;
+      STOP_CHARGE_THRESH_BAT0 = 80;
+
+      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth nfc wifi wwan";
+      DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi wwan";
+      DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi wwan";
+    };
+  };
+
   # Allow Unfree software
   nixpkgs.config.allowUnfree = true;
 
