@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 {
   programs.bash = {
@@ -7,11 +7,6 @@
       ls = "ls --color=auto";
       grep = "grep --color=auto";
     };
-    profileExtra = ''
-      if [[ -z $DISPLAY ]] && [[ $(tty) == /dev/tty1 ]]; then
-        exec sway
-      fi
-    '';
   };
 
   programs.starship = {

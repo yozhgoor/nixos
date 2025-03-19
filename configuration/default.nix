@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./dev
     ./neovim
     ./sway
     ./user
