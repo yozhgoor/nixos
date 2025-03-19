@@ -17,7 +17,6 @@
   };
 
   home.file.".gitignore_global".text = ''
-    # Rust
     debug/
     target/
     **/*.rs.bk

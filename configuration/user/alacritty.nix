@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 {
   programs.alacritty = {
@@ -7,15 +7,15 @@
       font = {
         size = 10;
         normal = {
-          family = "JetBrainsMono Nerd Font";
+          family = "Jetbrains Mono Nerd Font";
           style = "Regular";
         };
         bold = {
-          family = "JetBrainsMono Nerd Font";
+          family = "Jetbrains Mono Nerd Font";
           style = "Bold";
         };
         italic = {
-          family = "JetBrainsMono Nerd Font";
+          family = "Jetbrains Mono Nerd Font";
           style = "Italic";
         };
       };

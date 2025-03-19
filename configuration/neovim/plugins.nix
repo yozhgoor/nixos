@@ -87,30 +87,6 @@
           dash.width = 100;
         };
       };
-
-      lsp = {
-        enable = true;
-        lazyLoad.settings.ft = "rust";
-        inlayHints = true;
-        servers.rust_analyzer = {
-          enable = true;
-
-          installCargo = false;
-          installRustc = false;
-
-          settings = {
-            cargo.features = "all";
-            checkOnSave = true;
-            check.command = "clippy";
-            imports.granularity.group = "module";
-            procMacro.enable = true;
-            inlayHints = {
-              parameterHints.enable = true;
-              typeHints.enable = true;
-            };
-          };
-        };
-      };
     };
 
     autoCmd = [
@@ -121,18 +97,6 @@
           __raw = "
             function()
               vim.opt_local.conceallevel = 2
-            end
-          ";
-        };
-      }
-
-      {
-        event = "FileType";
-        pattern = "rust";
-        callback = {
-          __raw = "
-            function()
-              vim.lsp.buf.format({ timeout_ms = 200 })
             end
           ";
         };
