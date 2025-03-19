@@ -9,7 +9,7 @@ Structure:
 - [`configuration/user`][user]: User-specific configuration
 - [`configuration/sway`][sway-config]: Configuration related to [sway][sway]
 - [`configuration/neovim`][neovim-config]: Configuration related to [neovim][neovim]
-- [`configuration/shell.nix`][shell]: Configuration related to development
+- [`configuration/dev`][dev]: Configuration related to development
 
 ## Usage
 
@@ -71,4 +71,4 @@ nix-store --optimise
 [user]: https://github.com/yozhgoor/nixos/blob/main/configuration/user
 [sway-config]: https://github.com/yozhgoor/nixos/blob/main/configuration/sway
 [neovim-config]: https://github.com/yozhgoor/nixos/blob/main/configuration/neovim
-[shell]: https://github.com/yozhgoor/nixos/blob/main/configuration/shell.nix
+[dev]: https://github.com/yozhgoor/nixos/blob/main/configuration/dev
