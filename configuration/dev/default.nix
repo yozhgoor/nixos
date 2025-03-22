@@ -5,6 +5,9 @@
     home.packages = with pkgs; [
       rustc
       cargo
+
+      rustfmt
+      clippy
     
       gcc
       
@@ -38,14 +41,14 @@
     };
     autoCmd = [
       {
-        event = "FileType";
-        pattern = "rust";
+        event = "BufWritePre";
+        pattern = "*.rs";
         callback = {
-          __raw = "
+          __raw = ''
             function()
               vim.lsp.buf.format({ timeout_ms = 200 })
             end
-          ";
+          '';
         };
       }
     ];
