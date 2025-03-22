@@ -95,13 +95,13 @@
         event = "FileType";
         pattern = [ "nix" "javascript" "yaml" ];
         callback = {
-          __raw = "
+          __raw = ''
             function()
               vim.opt_local.tabstop = 2
               vim.opt_local.softtabstop = 2
               vim.opt_local.shiftwidth = 2
             end
-          "; 
+          ''; 
         };
       }
 
@@ -109,7 +109,7 @@
         event = "FileType";
         pattern = "xml";
         callback = {
-          __raw = "
+          __raw = ''
             function()
               vim.opt_local.wrap = true
               vim.opt_local.linebreak = true
@@ -117,7 +117,7 @@
               vim.opt_local.softtabstop = 2
               vim.opt_local.shiftwidth = 2
             end
-          ";
+          '';
         };
       }
     ];

@@ -23,10 +23,6 @@ Note that `<path_to_repo>` can be the path to the local repository but also the 
 sudo nixos-rebuild switch --flake github:owner/repo
 ```
 
-### Development
-
-The development shell can be accessed using `nix develop`.
-
 ## Upgrade
 
 You can upgrade NixOS to the latest version by running:
