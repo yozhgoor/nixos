@@ -1,3 +1,4 @@
+# Default configuration for Sway
 { inputs, config, pkgs, shared, ... }:
 
 {

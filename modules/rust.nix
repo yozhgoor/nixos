@@ -1,3 +1,4 @@
+# Configuration related to Rust
 { inputs, config, pkgs, shared, ... }:
 
 {

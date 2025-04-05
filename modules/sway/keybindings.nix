@@ -1,3 +1,4 @@
+# Keybindings configuration for Sway
 { config, pkgs, mod, ... }:
 
 {

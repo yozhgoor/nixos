@@ -15,22 +15,22 @@ Structure:
 
 Rebuild the system from the local repository:
 ```
-sudo nixos-rebuild switch --flake <path_to_repo>
+sudo nixos-rebuild switch --flake <path_to_repo>#hostname
 ```
 
 Note that `<path_to_repo>` can be the path to the local repository but also the remote repository:
 ```
-sudo nixos-rebuild switch --flake github:owner/repo
+sudo nixos-rebuild switch --flake github:owner/repo#hostname
 ```
 
 ## Upgrade
 
 You can upgrade NixOS to the latest version by running:
 ```
-nixos-rebuild switch --upgrade --flake <path_to_repo>
+nixos-rebuild switch --upgrade --flake <path_to_repo>#hostname
 ```
 
-Note that auto-upgrade is enabled in `configuration.nix`.
+Note that auto-upgrade is enabled in `configuration/default.nix`.
 
 ## Clean up
 

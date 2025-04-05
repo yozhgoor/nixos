@@ -1,3 +1,4 @@
+# Default configuration for Neovim
 { inputs, config, pkgs, ... }:
 
 {
