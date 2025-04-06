@@ -4,17 +4,13 @@
 {
   home-manager.users.${shared.username} ={
     home.packages = with pkgs; [
-      rustc
-      cargo
-
-      rustfmt
-      clippy
-    
+      rustup
       gcc
       
       cargo-temp
       cargo-release
       cargo-rdme
+      cargo-outdated
     ];
   };
 
