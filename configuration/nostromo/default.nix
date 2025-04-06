@@ -27,6 +27,14 @@
   # Bluetooth
   hardware.raspberry-pi."4".bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+  systemd.services.btattach = {
+    before = [ "bluetooth.service" ];
+    after = [ "dev-ttyAMA0.device" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      execStart = "${pkgs.bluez}/bin/btattach -B /dev/ttyAMA0 -P bcm -S 3000000"
+    };
+  };
 
   # Enable firmware with a license allowing redistribution
   hardware.enableRedistributableFirmware = true;
