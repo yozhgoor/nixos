@@ -13,6 +13,8 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: let
@@ -32,6 +34,7 @@
 
           inputs.home-manager.nixosModules.home-manager
           inputs.nixvim.nixosModules.nixvim
+          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l14-amd
 	      ];
       };
       "nostromo" = let
@@ -44,10 +47,11 @@
         system = shared.system;
         specialArgs = { inherit shared; };
         modules = [
-          configuration/nostromo
+          ./configuration/nostromo
 
           inputs.home-manager.nixosModules.home-manager
           inputs.nixvim.nixosModules.nixvim
+          inputs.nixos-hardware.nixosModules.raspberry-pi-4
         ];
       };
     };

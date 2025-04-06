@@ -1,5 +1,5 @@
 # Default configuration specific to `nostromo`
-{ config, pkgs, lib, ...}:
+{ config, pkgs, lib, shared, ... }:
 
 {
   # Host's modules
@@ -7,6 +7,13 @@
     ./hardware-configuration.nix # Host's hardware configuration
     ../default.nix # Default NixOS configuration
   ];
+
+  users = {
+    mutableUsers = false;
+    users.${shared.username} = {
+      password = "${shared.username}";
+    };
+  };
   
   # Use the UBoot boot loader
   boot = {
@@ -16,6 +23,10 @@
       generic-extlinux-compatible.enable = true;
     };
   };
+
+  # Bluetooth
+  hardware.raspberry-pi."4".bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   # Enable firmware with a license allowing redistribution
   hardware.enableRedistributableFirmware = true;
