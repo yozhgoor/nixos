@@ -32,7 +32,7 @@
     after = [ "dev-ttyAMA0.device" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      execStart = "${pkgs.bluez}/bin/btattach -B /dev/ttyAMA0 -P bcm -S 3000000"
+      execStart = "${pkgs.bluez}/bin/btattach -B /dev/ttyAMA0 -P bcm -S 3000000";
     };
   };
 
