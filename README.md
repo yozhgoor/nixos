@@ -75,10 +75,14 @@ The available hostnames available at the moment are:
 - `sanctuary` (`x86_64-linux`)
 - `nostromo` (`aarch64-linux`)
 
+Example: `sudo nixos-rebuild switch --flake .config/nixos#sanctuary`
+
 Note that `<path_to_repo>` can be the path to the local repository but also the remote repository:
 ```
 sudo nixos-rebuild switch --flake github:owner/repo#hostname
 ```
+
+Example: `sudo nixos-rebuild switch --flake github:yozhgoor/nixos#nostromo`
 
 ## Upgrade
 
@@ -116,7 +120,7 @@ nix-store --optimise
 
 [nixos]: https://nixos.org
 [flakes]: https://nixos.wiki/wiki/flakes
-[flakes_path]: https://github.com/yozhgoor/nixos/blob/main/flake.nix
+[flake_path]: https://github.com/yozhgoor/nixos/blob/main/flake.nix
 [configuration]: https://github.com/yozhgoor/nixos/blob/main/configuration
 [nostromo]: https://avp.fandom.com/wiki/USCSS_Nostromo
 [nostromo_path]: https://github.com/yozhgoor/nixos/blob/main/configuration/nostromo
