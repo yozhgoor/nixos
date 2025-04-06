@@ -18,8 +18,11 @@
     efi.canTouchEfiVariables = true;
   };
 
-  # Don't power Bluetooth on Boot.
-  hardware.bluetooth.powerOnBoot = false;
+  # Bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
 
   # Power-management
   services.tlp = {

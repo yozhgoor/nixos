@@ -38,9 +38,6 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  # Enable Bluetooth
-  hardware.bluetooth.enable = true;
-
   # Enable SSH
   services.openssh.enable = true;
 
