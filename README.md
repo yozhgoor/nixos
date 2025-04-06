@@ -2,35 +2,96 @@
 
 This repository keep track of my personal [NixOS][nixos] configuration.
 
-This setup uses Nix [Flakes][flakes] and [Home Manager][home-manager].
+## Structure
 
-Structure:
-- [`configuration/default.nix`][configuration]: Main configuration
-- [`configuration/user`][user]: User-specific configuration
-- [`configuration/sway`][sway-config]: Configuration related to [sway][sway]
-- [`configuration/neovim`][neovim-config]: Configuration related to [neovim][neovim]
-- [`configuration/dev`][dev]: Configuration related to development
+```mermaid
+flowchart TD
+    subgraph configuration
+        nostromo
+        sanctuary
+        default
+    end
+    subgraph modules
+        alacritty
+        bash
+        git
+        home-manager
+        markdown
+        neovim
+        rust
+        sway
+    end
+
+flake.nix-->nostromo
+flake.nix-->sanctuary
+
+nostromo-->home-manager
+nostromo-->default
+
+sanctuary-->home-manager
+sanctuary-->default
+
+sanctuary-->bash
+sanctuary-->markdown
+sanctuary-->rust
+
+default-->alacritty
+default-->git
+default-->neovim
+default-->sway
+```
+
+This setup use [Flakes][flakes] so the "entrypoint" is [`flake.nix`][flake_path].
+
+### Configuration
+
+The [`configuration`][configuration] directory contains configuration specific to the hosts.
+
+- Configuration specific [nostromo][nostromo]: [`configuration/nostromo`][nostromo_path]
+- Configuration specific to [sanctuary][sanctuary]: [`configuration/sanctuary`][sanctuary_path]
+- Default configuration: [`configuration/default.nix`][default_path]
+
+### Modules
+
+The [`modules`][modules] directory is related to the programs or services optionally imported.
+
+- Module related to [alacritty][alacritty]: [`modules/alacritty.nix`][alacritty_path]
+- Module related to [bash]: [`modules/bash.nix`][bash_path]
+- Module related to [git]: [`modules/git.nix`][git_path]
+- Module related to [home-manager][home-manager]: [`modules/home-manager.nix`][home-manager_path]
+- Module related to [markdown][markdown]: [`modules/markdown.nix`][markdown_path]
+- Module related to [neovim][neovim]: [`modules/neovim`][neovim_path]
+- Module related to [rust][rust]: [`modules/rust`][rust_path]
+- Module related to [sway][sway]: [`modules/sway`][sway_path]
 
 ## Usage
 
 Rebuild the system from the local repository:
 ```
-sudo nixos-rebuild switch --flake <path_to_repo>
+sudo nixos-rebuild switch --flake <path_to_repo>#hostname
 ```
+
+The available hostnames available at the moment are:
+- `sanctuary` (`x86_64-linux`)
+- `nostromo` (`aarch64-linux`)
+
+Example: `sudo nixos-rebuild switch --flake .config/nixos#sanctuary`
 
 Note that `<path_to_repo>` can be the path to the local repository but also the remote repository:
 ```
-sudo nixos-rebuild switch --flake github:owner/repo
+sudo nixos-rebuild switch --flake github:owner/repo#hostname
 ```
+
+Example: `sudo nixos-rebuild switch --flake github:yozhgoor/nixos#nostromo`
 
 ## Upgrade
 
 You can upgrade NixOS to the latest version by running:
 ```
-nixos-rebuild switch --upgrade --flake <path_to_repo>
+nixos-rebuild switch --upgrade --flake <path_to_repo>#hostname
 ```
 
-Note that auto-upgrade is enabled in `configuration.nix`.
+Note that auto-upgrade is enabled in `configuration/default.nix`.
 
 ## Clean up
 
@@ -58,13 +119,28 @@ nix-store --optimise
 ```
 
 [nixos]: https://nixos.org
-[home-manager]: https://github.com/nix-community/home-manager
 [flakes]: https://nixos.wiki/wiki/flakes
-[sway]: https://swaywm.org
+[flake_path]: https://github.com/yozhgoor/nixos/blob/main/flake.nix
+[configuration]: https://github.com/yozhgoor/nixos/blob/main/configuration
+[nostromo]: https://avp.fandom.com/wiki/USCSS_Nostromo
+[nostromo_path]: https://github.com/yozhgoor/nixos/blob/main/configuration/nostromo
+[sanctuary]: https://marvel.fandom.com/wiki/Sanctuary_(Vehicle)
+[sanctuary_path]: https://github.com/yozhgoor/nixos/blob/main/configuration/sanctuary
+[default_path]: https://github.com/yozhgoor/nixos/blob/main/configuration/default.nix
+[modules]: https://github.com/yozhgoor/nixos/blob/main/modules
+[alacritty]: https://alacritty.org
+[alacritty_path]: https://github.com/yozhgoor/nixos/blob/main/modules/alacritty.nix 
+[bash]: https://www.gnu.org/software/bash
+[bash_path]: https://github.com/yozhgoor/nixos/blob/main/modules/bash.nix
+[git]: https://git-scm.com
+[git_path]: https://github.com/yozhgoor/nixos/blob/main/modules/git.nix
+[home-manager]: https://github.com/nix-community/home-manager
+[home-manager_path]: https://github.com/yozhgoor/nixos/blob/main/modules/home-manager.nix
+[markdown]: https://en.wikipedia.org/wiki/Markdown
+[markdown_path]: https://github.com/yozhgoor/nixos/blob/main/modules/markdown.nix
 [neovim]: https://neovim.io
-[devshell]: https://nixos.wiki/wiki/Development_environment_with_nix-shell#nix_develop
-[configuration]: https://github.com/yozhgoor/nixos/blob/main/configuration/default.nix
-[user]: https://github.com/yozhgoor/nixos/blob/main/configuration/user
-[sway-config]: https://github.com/yozhgoor/nixos/blob/main/configuration/sway
-[neovim-config]: https://github.com/yozhgoor/nixos/blob/main/configuration/neovim
-[dev]: https://github.com/yozhgoor/nixos/blob/main/configuration/dev
+[neovim_path]: https://github.com/yozhgoor/nixos/blob/main/modules/neovim
+[rust]: https://www.rust-lang.org/
+[rust_path]: https://github.com/yozhgoor/nixos/blob/main/modules/rust.nix
+[sway]: https://swaywm.org
+[sway_path]: https://github.com/yozhgoor/nixos/blob/main/modules/sway

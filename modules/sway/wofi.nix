@@ -1,3 +1,4 @@
+# Configuration of Wofi for Sway
 { config, pkgs, ... }:
 
 {

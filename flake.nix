@@ -16,21 +16,40 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: let
-    shared = {
-      hostname = "sanctuary";
-      system = "x86_64-linux";
-      username = "yozhgoor";
-    };
   in {
-    nixosConfigurations.${shared.hostname} = nixpkgs.lib.nixosSystem {
-      system = shared.system;
-      specialArgs = { inherit shared; };
-	    modules = [
-	      ./configuration
+    nixosConfigurations = {
+      "sanctuary" = let
+        shared = {
+          hostname = "sanctuary";
+          system = "x86_64-linux";
+          username = "yozhgoor";
+        };
+      in nixpkgs.lib.nixosSystem {
+        system = shared.system;
+        specialArgs = { inherit shared; };
+	      modules = [
+	        ./configuration/sanctuary
 
-        inputs.home-manager.nixosModules.home-manager
-        inputs.nixvim.nixosModules.nixvim
-	    ];
+          inputs.home-manager.nixosModules.home-manager
+          inputs.nixvim.nixosModules.nixvim
+	      ];
+      };
+      "nostromo" = let
+        shared = {
+          hostname = "nostromo";
+          system = "aarch64-linux";
+          username = "guest";
+        };
+      in nixpkgs.lib.nixosSystem {
+        system = shared.system;
+        specialArgs = { inherit shared; };
+        modules = [
+          configuration/nostromo
+
+          inputs.home-manager.nixosModules.home-manager
+          inputs.nixvim.nixosModules.nixvim
+        ];
+      };
     };
   };
 }

@@ -1,17 +1,26 @@
-{ inputs, config, pkgs, shared, ... }:
+# Default configuration for all hosts
+{ config, lib, pkgs, shared, ... }:
 
 {
+  # Default modules
   imports = [
-    ./hardware-configuration.nix
-    ./dev
-    ./neovim
-    ./sway
-    ./user
+    ../modules/home-manager.nix
+
+    ../modules/sway
+    ../modules/alacritty.nix
+
+    ../modules/neovim
+    ../modules/git.nix
   ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # User - Don't forget to passwd
+  users.users.${shared.username} = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "networkmanager" "video" ];
+  };
+
+  # Disable the GRUB boot loader
+  boot.loader.grub.enable = false;
 
   # Networking
   networking.hostName = "${shared.hostname}";
@@ -19,12 +28,9 @@
   networking.firewall.enable = true;
   networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  # Locale
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "Europe/Brussels";
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
-  };
 
   # Fonts
   fonts.packages = with pkgs; [
@@ -33,15 +39,10 @@
   ];
 
   # Enable Bluetooth
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
-  };
+  hardware.bluetooth.enable = true;
 
   # Enable SSH
-  services.openssh = {
-    enable = true;
-  };
+  services.openssh.enable = true;
 
   # Enable sound
   security.rtkit.enable = true;
@@ -52,33 +53,12 @@
     jack.enable = true;
   };
 
-  # Power-management
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-      START_CHARGE_THRESH_BAT0 = 40;
-      STOP_CHARGE_THRESH_BAT0 = 80;
-
-      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth nfc wifi wwan";
-      DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi wwan";
-      DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi wwan";
-    };
-  };
-
-  # Allow Unfree software
-  nixpkgs.config.allowUnfree = true;
-
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Auto-upgrade
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = false;
-
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  system.stateVersion = "24.11"; # NEVER change this value after the initial install.
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = false;
+  };
 }

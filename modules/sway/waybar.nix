@@ -1,3 +1,4 @@
+# Configuration of Waybar for Sway
 { config, pkgs, ... }:
 
 {
