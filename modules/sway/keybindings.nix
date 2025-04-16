@@ -11,6 +11,8 @@
     "${mod}+t" = "exec ${pkgs.alacritty}/bin/alacritty";
     "${mod}+d" = "exec ${pkgs.wofi}/bin/wofi --show drun";
     "${mod}+Shift+q" = "kill";
+    "${mod}+Shift+p" = "exec ${pkgs.swaylock}/bin/swaylock -f -c 000000";
+    "${mod}+Print" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.swappy}/bin/swappy -f -";
 
     # Move the focus around
     "${mod}+Left" = "focus left";
