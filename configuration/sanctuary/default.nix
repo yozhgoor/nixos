@@ -1,25 +1,23 @@
-# Default configuration specific to `sanctuary`
 { inputs, config, pkgs, shared, ... }:
 
 {
-  # Host's modules
   imports = [
-    ./hardware-configuration.nix # Host's hardware configuration
-    ../default.nix # Default NixOS configuration
+    ./hardware-configuration.nix
+    ../default.nix
 
     ../../modules/rust.nix
     ../../modules/markdown.nix
   ];
 
-  # Use the systemd-boot EFI boot loader.
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
 
-  # Bluetooth
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = false;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
 
   networking.networkmanager.wifi.powersave = true;
 

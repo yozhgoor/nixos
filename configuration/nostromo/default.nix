@@ -1,11 +1,9 @@
-# Default configuration specific to `nostromo`
 { config, pkgs, lib, shared, ... }:
 
 {
-  # Host's modules
   imports = [
-    ./hardware-configuration.nix # Host's hardware configuration
-    ../default.nix # Default NixOS configuration
+    ./hardware-configuration.nix
+    ../default.nix
   ];
 
   users = {
@@ -15,10 +13,8 @@
     };
   };
 
-  # Autologin on the `guest` user
   services.getty.autologinUser = "${shared.username}";
 
-  # Use the UBoot boot loader
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
     initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
@@ -27,10 +23,8 @@
     };
   };
 
-  # Enable firmware with a license allowing redistribution
   hardware.enableRedistributableFirmware = true;
 
-  # System packages
   environment.systemPackages = with pkgs; [
     raspberrypi-eeprom
   ];
