@@ -1,30 +1,26 @@
-# Default configuration specific to `sanctuary`
 { inputs, config, pkgs, shared, ... }:
 
 {
-  # Host's modules
   imports = [
-    ./hardware-configuration.nix # Host's hardware configuration
-    ../default.nix # Default NixOS configuration
- 
-    ../../modules/bash.nix
+    ./hardware-configuration.nix
+    ../default.nix
+
     ../../modules/rust.nix
     ../../modules/markdown.nix
   ];
 
-  # Use the systemd-boot EFI boot loader.
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
 
-  # Bluetooth
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = false;
   };
 
-  # Power-management
+  networking.networkmanager.wifi.powersave = true;
+
   services.tlp = {
     enable = true;
     settings = {
@@ -42,7 +38,6 @@
     };
   };
 
-  # User packages
   home-manager.users.${shared.username} = {
     home.packages = with pkgs; [
       firefox-wayland
