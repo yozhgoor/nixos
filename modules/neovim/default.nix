@@ -89,7 +89,7 @@
       {
         event = "BufWritePre";
         pattern = "*";
-        command = "%s/\s\+$//e";
+        command = "%s/\\s\\+$//e";
       }
     
       {
