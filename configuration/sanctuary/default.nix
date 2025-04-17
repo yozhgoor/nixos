@@ -37,6 +37,8 @@
       DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth nfc wifi wwan";
       DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi wwan";
       DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi wwan";
+
+      USB_AUTOSUSPEND = 0;
     };
   };
 
