@@ -16,7 +16,7 @@
   # User - Don't forget to passwd
   users.users.${shared.username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "bluetooth" ];
   };
 
   # Disable the GRUB boot loader
