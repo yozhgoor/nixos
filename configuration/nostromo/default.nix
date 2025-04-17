@@ -32,10 +32,10 @@
 
   systemd.services.btattach = {
     before = [ "bluetooth.service" ];
-    after = [ "dev-ttyAMA0.device" ];
+    after = [ "dev-ttyS0.device" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.bluez}/bin/btattach -B /dev/ttyAMA0 -P bcm -S 3000000";
+      ExecStart = "${pkgs.bluez}/bin/btattach -B /dev/ttyS0 -P bcm -S 3000000";
     };
   };
 
