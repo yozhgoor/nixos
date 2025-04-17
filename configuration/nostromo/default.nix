@@ -14,7 +14,10 @@
       password = "${shared.username}";
     };
   };
-  
+
+  # Autologin on the `guest` user
+  services.getty.autologinUser = "${shared.username}";
+
   # Use the UBoot boot loader
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
@@ -27,8 +30,14 @@
   # Enable firmware with a license allowing redistribution
   hardware.enableRedistributableFirmware = true;
 
-  # Autologin on the `guest` user
-  services.getty.autologinUser = "${shared.username}";
+  systemd.services.btattach = {
+    before = [ "bluetooth.service" ];
+    after = [ "dev-ttyAMA0.device" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.bluez}/bin/btattach -B /dev/ttyAMA0 -p bcm -S 3000000";
+    };
+  };
 
   # System packages
   environment.systemPackages = with pkgs; [

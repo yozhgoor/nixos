@@ -18,6 +18,7 @@
   };
 
   hardware.bluetooth.powerOnBoot = false;
+  networking.networkmanager.wifi.powersave = true;
 
   # Power-management
   services.tlp = {
