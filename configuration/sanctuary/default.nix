@@ -6,7 +6,7 @@
   imports = [
     ./hardware-configuration.nix # Host's hardware configuration
     ../default.nix # Default NixOS configuration
- 
+
     ../../modules/rust.nix
     ../../modules/markdown.nix
   ];
@@ -17,11 +17,7 @@
     efi.canTouchEfiVariables = true;
   };
 
-  # Bluetooth
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
-  };
+  hardware.bluetooth.powerOnBoot = false;
 
   # Power-management
   services.tlp = {

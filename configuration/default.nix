@@ -22,6 +22,9 @@
   # Disable the GRUB boot loader
   boot.loader.grub.enable = false;
 
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+
   # Networking
   networking.hostName = "${shared.hostname}";
   networking.networkmanager = {
