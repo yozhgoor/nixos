@@ -8,7 +8,7 @@
 
     ../modules/sway
     ../modules/alacritty.nix
-
+    ../modules/bash.nix
     ../modules/neovim
     ../modules/git.nix
   ];

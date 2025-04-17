@@ -7,7 +7,6 @@
     ./hardware-configuration.nix # Host's hardware configuration
     ../default.nix # Default NixOS configuration
  
-    ../../modules/bash.nix
     ../../modules/rust.nix
     ../../modules/markdown.nix
   ];

@@ -28,7 +28,7 @@
   hardware.enableRedistributableFirmware = true;
 
   # Autologin on the `guest` user
-  services.getty.autologinUser = "guest";
+  services.getty.autologinUser = "${shared.username}";
 
   # System packages
   environment.systemPackages = with pkgs; [
