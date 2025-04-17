@@ -16,14 +16,11 @@
   # User - Don't forget to passwd
   users.users.${shared.username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "bluetooth" ];
+    extraGroups = [ "wheel" "networkmanager" "video" ];
   };
 
   # Disable the GRUB boot loader
   boot.loader.grub.enable = false;
-
-  # Bluetooth
-  hardware.bluetooth.enable = true;
 
   # Networking
   networking.hostName = "${shared.hostname}";

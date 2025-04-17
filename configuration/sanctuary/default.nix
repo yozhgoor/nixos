@@ -17,10 +17,12 @@
     efi.canTouchEfiVariables = true;
   };
 
+  # Bluetooth
+  hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
+
   networking.networkmanager.wifi.powersave = true;
 
-  # Power-management
   services.tlp = {
     enable = true;
     settings = {
@@ -38,7 +40,6 @@
     };
   };
 
-  # User packages
   home-manager.users.${shared.username} = {
     home.packages = with pkgs; [
       firefox-wayland
