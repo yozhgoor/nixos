@@ -7,6 +7,7 @@
 
     ../../modules/rust.nix
     ../../modules/markdown.nix
+    ../../modules/remote.nix
   ];
 
   boot.loader = {

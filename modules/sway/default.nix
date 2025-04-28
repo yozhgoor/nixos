@@ -13,7 +13,7 @@
       ./waybar.nix
       ./wofi.nix
     ];
-      
+
     wayland.windowManager.sway = {
       enable = true;
       wrapperFeatures.gtk = true;

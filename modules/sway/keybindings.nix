@@ -2,8 +2,8 @@
 { config, pkgs, mod, ... }:
 
 {
-  wayland.windowManager.sway.config.keybindings = 
-  let 
+  wayland.windowManager.sway.config.keybindings =
+  let
     mod = "Mod4";
   in {
     # Shortcuts
