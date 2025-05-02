@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../default.nix
 
+    ../../modules/i3.nix
     ../../modules/rust.nix
     ../../modules/markdown.nix
     ../../modules/remote.nix
@@ -41,7 +42,7 @@
 
   home-manager.users.${shared.username} = {
     home.packages = with pkgs; [
-      firefox-wayland
+      firefox
       spotify
       telegram-desktop
     ];

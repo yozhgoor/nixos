@@ -7,7 +7,7 @@
       enable = true;
       settings = {
         font = {
-          size = 10;
+          size = 8;
           normal = {
             family = "Jetbrains Mono Nerd Font";
             style = "Regular";

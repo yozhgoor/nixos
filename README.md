@@ -12,13 +12,7 @@ flowchart TD
         default
     end
     subgraph modules
-        alacritty
-        bash
-        git
         home-manager
-        markdown
-        neovim
-        rust
         sway
     end
 
@@ -30,15 +24,6 @@ nostromo-->default
 
 sanctuary-->home-manager
 sanctuary-->default
-
-sanctuary-->bash
-sanctuary-->markdown
-sanctuary-->rust
-
-default-->alacritty
-default-->git
-default-->neovim
-default-->sway
 ```
 
 This setup use [Flakes][flakes] so the "entrypoint" is [`flake.nix`][flake_path].
@@ -129,7 +114,7 @@ nix-store --optimise
 [default_path]: https://github.com/yozhgoor/nixos/blob/main/configuration/default.nix
 [modules]: https://github.com/yozhgoor/nixos/blob/main/modules
 [alacritty]: https://alacritty.org
-[alacritty_path]: https://github.com/yozhgoor/nixos/blob/main/modules/alacritty.nix 
+[alacritty_path]: https://github.com/yozhgoor/nixos/blob/main/modules/alacritty.nix
 [bash]: https://www.gnu.org/software/bash
 [bash_path]: https://github.com/yozhgoor/nixos/blob/main/modules/bash.nix
 [git]: https://git-scm.com
