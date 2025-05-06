@@ -3,11 +3,17 @@
 
 {
   home-manager.users.${shared.username} = {
+    home.packages = with pkgs; [
+      bat
+      ripgrep
+    ];
+
     programs.bash = {
       enable = true;
       shellAliases = {
         ls = "ls --color=auto";
         grep = "grep --color=auto";
+        bat = "bat --decorations never";
       };
     };
 
@@ -20,11 +26,6 @@
           success_symbol = "[](bold green) ";
           error_symbol = "[](bold red) ";
         };
-        directory.style = "bold #00FF00";
-        git_branch.style = "bold #00FF00";
-        shell.style = "bold #00FF00";
-        rust.style = "bold #00FF00";
-        time.style = "bold #00FF00";
         package.disabled = true;
       };
     };

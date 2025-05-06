@@ -5,13 +5,16 @@
     enable = true;
 
     displayManager.startx.enable = true;
-    windowManager.i3.enable = true;
+    windowManager.i3 = {
+      enable = true;
+    };
   };
 
   home-manager.users.${shared.username} = {
     home.packages = with pkgs; [
-      xorg.xrdb
       xsel
+      xorg.xrdb
+      feh
       brightnessctl
     ];
 
@@ -19,6 +22,7 @@
       let mod = "Mod4";
     in {
       enable = true;
+
       config = {
         modifier = mod;
 
@@ -85,6 +89,15 @@
 
         window = {
           border = 0;
+          titlebar = false;
+          commands = [
+            {
+              command = "border normal";
+              criteria = {
+                class = "XTerm";
+              };
+            }
+          ];
         };
 
         bars = [
@@ -95,6 +108,14 @@
               size = 8.0;
             };
             statusCommand = "${pkgs.i3status}/bin/i3status";
+          }
+        ];
+
+        startup = [
+          {
+            command = "feh --bg-fill ${./image/background-image.png}";
+            always = true;
+            notification = false;
           }
         ];
       };
@@ -156,6 +177,67 @@
           startx
         fi
       '';
+    };
+
+    programs.i3status = {
+      enable = true;
+      enableDefault = false;
+
+      general = {
+        colors = true;
+        color_good = "#00FF00";
+        color_degraded = "#d79921";
+        color_bad = "#cc241d";
+        interval = 5;
+      };
+
+      modules = {
+        "wireless _first_" = {
+          position = 1;
+          settings = {
+            format_down = "W: down";
+            format_up = "W: %quality at %essid";
+          };
+        };
+        "ethernet _first_" = {
+          position = 2;
+          settings = {
+            format_down = "E: down";
+            format_up = "E: %ip (%speed)";
+          };
+        };
+        "battery all" = {
+          position = 3;
+          settings = {
+            format = "%status %percentage";
+            low_threshold = 15;
+          };
+        };
+        "disk /" = {
+          position = 4;
+          settings.format = "Disk %avail";
+        };
+        "cpu_usage" = {
+          position = 5;
+          settings.format = "CPU %usage";
+        };
+        "load" = {
+          position = 6;
+          settings.format = "Load %1min";
+        };
+        "memory" = {
+          position = 7;
+          settings = {
+            format = "MEM %used | %available";
+            format_degraded = "MEMORY < %available";
+            threshold_degraded = "1G";
+          };
+        };
+        "time" = {
+          position = 8;
+          settings.format = "%d-%m-%Y %H:%M";
+        };
+      };
     };
   };
 }

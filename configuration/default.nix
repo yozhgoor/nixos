@@ -6,7 +6,6 @@
 
     ../modules/bash.nix
     ../modules/neovim
-    ../modules/git.nix
   ];
 
   users.users.${shared.username} = {

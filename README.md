@@ -4,28 +4,6 @@ This repository keep track of my personal [NixOS][nixos] configuration.
 
 ## Structure
 
-```mermaid
-flowchart TD
-    subgraph configuration
-        nostromo
-        sanctuary
-        default
-    end
-    subgraph modules
-        home-manager
-        sway
-    end
-
-flake.nix-->nostromo
-flake.nix-->sanctuary
-
-nostromo-->home-manager
-nostromo-->default
-
-sanctuary-->home-manager
-sanctuary-->default
-```
-
 This setup use [Flakes][flakes] so the "entrypoint" is [`flake.nix`][flake_path].
 
 ### Configuration
@@ -46,8 +24,9 @@ The [`modules`][modules] directory is related to the programs or services option
 - Module related to [home-manager][home-manager]: [`modules/home-manager.nix`][home-manager_path]
 - Module related to [markdown][markdown]: [`modules/markdown.nix`][markdown_path]
 - Module related to [neovim][neovim]: [`modules/neovim`][neovim_path]
-- Module related to [rust][rust]: [`modules/rust`][rust_path]
+- Module related to [rust][rust]: [`modules/rust.nix`][rust_path]
 - Module related to [sway][sway]: [`modules/sway`][sway_path]
+- Module related to [i3][i3]: [`modules/i3.nix`][i3_path]
 
 ## Usage
 
@@ -129,3 +108,5 @@ nix-store --optimise
 [rust_path]: https://github.com/yozhgoor/nixos/blob/main/modules/rust.nix
 [sway]: https://swaywm.org
 [sway_path]: https://github.com/yozhgoor/nixos/blob/main/modules/sway
+[i3]: https://i3wm.org
+[i3_path]: https://github.com/yozhgoor/nixos/blob/main/modules/i3.nix

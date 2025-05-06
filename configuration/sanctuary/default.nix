@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../default.nix
 
+    ../../modules/git.nix
     ../../modules/i3.nix
     ../../modules/rust.nix
     ../../modules/markdown.nix
@@ -43,8 +44,6 @@
       firefox
       spotify
       telegram-desktop
-
-      ripgrep
     ];
   };
 
