@@ -21,8 +21,6 @@
     powerOnBoot = false;
   };
 
-  networking.networkmanager.wifi.powersave = true;
-
   services.tlp = {
     enable = true;
     settings = {
@@ -32,9 +30,9 @@
       START_CHARGE_THRESH_BAT0 = 40;
       STOP_CHARGE_THRESH_BAT0 = 80;
 
-      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth nfc wifi wwan";
-      DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi wwan";
-      DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi wwan";
+      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth wifi";
+      DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi";
+      DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi";
 
       USB_AUTOSUSPEND = 0;
     };
@@ -45,6 +43,8 @@
       firefox
       spotify
       telegram-desktop
+
+      ripgrep
     ];
   };
 

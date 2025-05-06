@@ -4,7 +4,6 @@
   imports = [
     ../modules/home-manager.nix
 
-    ../modules/alacritty.nix
     ../modules/bash.nix
     ../modules/neovim
     ../modules/git.nix

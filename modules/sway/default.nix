@@ -14,6 +14,18 @@
       ./wofi.nix
     ];
 
+    home.packages = with pkgs; [
+      swayidle
+      swaylock
+
+      grim
+      slurp
+      swappy
+
+      brightnessctl
+      wl-clipboard
+    ];
+
     wayland.windowManager.sway = {
       enable = true;
       wrapperFeatures.gtk = true;
@@ -98,18 +110,6 @@
         '';
       };
     };
-
-    home.packages = with pkgs; [
-      swayidle
-      swaylock
-
-      grim
-      slurp
-      swappy
-
-      brightnessctl
-      wl-clipboard
-    ];
 
     programs.bash = {
       profileExtra = ''
