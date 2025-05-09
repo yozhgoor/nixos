@@ -10,6 +10,7 @@
     ../../modules/rust.nix
     ../../modules/markdown.nix
     ../../modules/remote.nix
+    ../../modules/firefox
   ];
 
   boot.loader = {
@@ -41,7 +42,6 @@
 
   home-manager.users.${shared.username} = {
     home.packages = with pkgs; [
-      firefox
       spotify
       telegram-desktop
     ];

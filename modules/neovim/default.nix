@@ -20,7 +20,6 @@
 
     clipboard = {
       register = "unnamedplus";
-      providers.wl-copy.enable = true;
     };
 
     globals.mapleader = ",";
@@ -42,7 +41,7 @@
       smartcase = true;
       hlsearch = true;
       incsearch = true;
-      
+
       termguicolors = true;
       signcolumn = "yes:1";
       number = true;
@@ -91,7 +90,7 @@
         pattern = "*";
         command = "%s/\\s\\+$//e";
       }
-    
+
       {
         event = "FileType";
         pattern = [ "nix" "javascript" "yaml" ];
@@ -102,7 +101,7 @@
               vim.opt_local.softtabstop = 2
               vim.opt_local.shiftwidth = 2
             end
-          ''; 
+          '';
         };
       }
 
