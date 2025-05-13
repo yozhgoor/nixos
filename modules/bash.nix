@@ -13,7 +13,7 @@
       shellAliases = {
         ls = "ls --color=auto";
         grep = "grep --color=auto";
-        bat = "bat --decorations never";
+        bat = "bat --decorations never --theme gruvbox-dark";
       };
     };
 

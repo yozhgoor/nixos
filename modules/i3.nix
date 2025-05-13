@@ -94,7 +94,7 @@
             {
               command = "border normal";
               criteria = {
-                class = "XTerm";
+                class = "xfreerdp";
               };
             }
           ];
