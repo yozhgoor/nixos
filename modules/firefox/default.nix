@@ -5,7 +5,7 @@
     programs.firefox = {
       enable = true;
 
-      profiles.${shared.username} = {
+      profiles.default = {
         isDefault = true;
 
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -14,15 +14,15 @@
         ];
 
         search = {
-          force = true;
-
           default = "DuckDuckGo";
           privateDefault = "DuckDuckGo";
+          engines = {
+            "Google".metaData.hidden = true;
+            "Bing".metaData.hidden = true;
+          };
         };
 
         settings = {
-          "browser.startup.blankWindow" = true;
-
           # Disable first-launch phase
           "browser.disableResetPrompt" = true;
           "browser.download.panel.shown" = true;
@@ -39,18 +39,28 @@
           # Clean new tab page
           "browser.newtabpage.activity-stream.feeds.topsites" = false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+          "browser.newtabpage.activity-stream.showSponsored" = false;
           "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts" = false;
+          "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+          "browser.newtabpage.activity-stream.feeds.snippets" = false;
+          "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+          "browser.newtabpage.activity-stream.section.highlights.includeBookmarks" = false;
+          "browser.newtabpage.activity-stream.section.highlights.includeDownloads" = false;
+          "browser.newtabpage.activity-stream.section.highlights.includeVisited" = false;
+          "browser.newtabpage.activity-stream.feeds.telemetry" = false;
+          "browser.newtabpage.activity-stream.telemetry" = false;
+          "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
+          "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
 
           # Disable telemetry
           "app.shield.optoutstudies.enabled" = false;
           "browser.discovery.enabled" = false;
-          "browser.newtabpage.activity-stream.feeds.telemetry" = false;
-          "browser.newtabpage.activity-stream.telemetry" = false;
           "browser.ping-centre.telemetry" = false;
+          "browser.search.serpEventTelemetryCategorization.regionEnabled" = false;
           "datareporting.healthreport.service.enabled" = false;
           "datareporting.healthreport.uploadEnabled" = false;
           "datareporting.policy.dataSubmissionEnabled" = false;
-          "datareporting.sessions.current.clean" = true;
+          "datareporting.usage.uploadEnabled" = false;
           "devtools.onboarding.telemetry.logged" = false;
           "toolkit.telemetry.enabled" = false;
           "toolkit.telemetry.archive.enabled" = false;
@@ -67,24 +77,76 @@
           "toolkit.telemetry.unifiedIsOptIn" = false;
           "toolkit.telemetry.updatePing.enabled" = false;
 
+          # Enforce privacy
           "privacy.trackingprotection.enabled" = true;
-          "privacy.history.custom" = true;
-          "privacy.sanitizeOnShutdown" = true;
-          "places.history.enabled" = false;
+          "privacy.trackingprotection.emailtracking.enabled" = true;
+          "privacy.trackingprotection.socialtracking.enabled" = true;
+          "privacy.globalprivacycontrol.enabled" = true;
+          "privacy.fingerprintingProtection" = true;
           "dom.security.https_only_mode" = true;
+          "browser.contentblocking.category" = "strict";
+          "places.history.enabled" = false;
+
+          # Clean-up on shutdown
+          "privacy.sanitize.sanitizeOnShutdown" = true;
+          "privacy.learHistory.cookiesAndStorage" = true;
+          "privacy.clearHistory.HistoryFormDataAndDownloads" = true;
+          "privacy.clearHistory.formdata" = true;
+          "privacy.clearHistory.siteSettings" = true;
+          "privacy.clearSiteData.browsingHistoryAndDownloads" = true;
+          "privacy.clearSiteData.formdata" = true;
+          "privacy.clearSiteData.historyFormDataAndDownloads" = true;
+          "privacy.clearSiteDataHeader.cache.enabled" = true;
+          "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = true;
+          "privacy.clearOnShutdown_v2.formdata" = true;
+
+          # Disable Normandy (Mozilla's firefox remote control)
+          "app.normandy.first_run" = false;
 
           # Disable fx accounts
           "identity.fxaccounts.enabled" = false;
           # Disable "save password" prompt
           "signon.rememberSignons" = false;
+          "signon.autofillForms" = false;
+          "signon.firefoxRelay.feature" = "disabled";
+          "signon.generation.enabled" = false;
 
+          # Set dark theme
           "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+          "browser.theme.content-theme" = 0;
+          "browser.theme.toolbar-theme" = 0;
+          "layout.css.prefers-color-scheme.content-override" = 0;
+
+          # Disable translation panel
+          "browser.translations.panelShow" = false;
+
+          # Remove unwanted suggestions and shortcuts from URL bar
           "browser.urlbar.suggest.recentsearches" = false;
-          "browser.urlbar.suggest.history" = false;
+          "browser.urlbar.shortcuts.history" = false;
+          "browser.urlbar.suggests.topsites" = false;
+
+          # Always show bookmarks toolbar
           "browser.toolbars.bookmarks.visibility" = "always";
 
+          # Hide sidebar
+          "sidebar.visibility" = "hide-sidebar";
+
+          # Hide preview on hover
+          "browser.tabs.hoverPreview.showThumbnails" = false;
+
+          # Font
           "font.name.serif.x-western" = "JetbrainsMono Nerd Font";
           "font.size.variable.x-western" = 14;
+
+          # Set default download directory
+          "browser.download.dir" = "/home/${shared.username}/downloads";
+          "browser.download.folderList" = 2;
+
+          # Disable auto-fill on forms
+          "dom.forms.autocomplete.formautofill" = false;
+          "extensions.formautofill.addresses.enabled" = false;
+          "extensions.formautofill.creditCards.enabled" = false;
+          "browser.formfill.enable" = false;
         };
 
         bookmarks = [
