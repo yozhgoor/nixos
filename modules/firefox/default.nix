@@ -7,6 +7,7 @@
 
       profiles.default = {
         isDefault = true;
+        path = ".config/firefox/default";
 
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           darkreader
@@ -106,6 +107,7 @@
 
           # Disable fx accounts
           "identity.fxaccounts.enabled" = false;
+
           # Disable "save password" prompt
           "signon.rememberSignons" = false;
           "signon.autofillForms" = false;
@@ -151,6 +153,9 @@
 
           # Enable UI customizations with `userChrome.css`
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+          # Show toolbar on full-screen
+          "browser.fullscreen.autohide" = false;
 
           # Performance
           "browser.tabs.maxOpenBeforeWarn" = 25;

@@ -117,6 +117,11 @@
             always = true;
             notification = false;
           }
+          {
+            command = "xset s off -dpms s noblank";
+            always = true;
+            notification = false;
+          }
         ];
       };
     };
