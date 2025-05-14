@@ -22,6 +22,20 @@
           };
         };
 
+        userChrome = ''
+          #firefox-view-button {
+            display: none !important;
+          }
+
+          #alltabs-button {
+            display: none !important;
+          }
+
+          #nav-bar toolbarspring {
+            display: none !important;
+          }
+        '';
+
         settings = {
           # Disable first-launch phase
           "browser.disableResetPrompt" = true;
@@ -89,7 +103,7 @@
 
           # Clean-up on shutdown
           "privacy.sanitize.sanitizeOnShutdown" = true;
-          "privacy.learHistory.cookiesAndStorage" = true;
+          "privacy.clearHistory.cookiesAndStorage" = true;
           "privacy.clearHistory.HistoryFormDataAndDownloads" = true;
           "privacy.clearHistory.formdata" = true;
           "privacy.clearHistory.siteSettings" = true;
@@ -123,7 +137,7 @@
           # Remove unwanted suggestions and shortcuts from URL bar
           "browser.urlbar.suggest.recentsearches" = false;
           "browser.urlbar.shortcuts.history" = false;
-          "browser.urlbar.suggests.topsites" = false;
+          "browser.urlbar.suggest.topsites" = false;
 
           # Always show bookmarks toolbar
           "browser.toolbars.bookmarks.visibility" = "always";
@@ -147,6 +161,12 @@
           "extensions.formautofill.addresses.enabled" = false;
           "extensions.formautofill.creditCards.enabled" = false;
           "browser.formfill.enable" = false;
+
+          # Disable pocket
+          "extensions.pocket.enabled" = false;
+
+          # Enable UI customizations with `userChrome.css`
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         };
 
         bookmarks = [
