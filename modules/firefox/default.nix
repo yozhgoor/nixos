@@ -43,12 +43,11 @@
           "browser.feeds.showFirstRunUI" = false;
           "browser.messaging-system.whatsNewPanel.enabled" = false;
           "browser.rights.3.shown" = true;
-          "browser.shell.checkDefaultBrowser" = false;
-          "browser.shell.defaultBrowser.checkCount" = 1;
           "browser.startup.homepage_override.mstone" = "ignore";
           "browser.uitour.enabled" = false;
           "trailhead.firstrun.didSeeAboutWelcome" = true;
           "browser.bookmarks.addedImportButton" = true;
+          "app.normandy.first_run" = false;
 
           # Clean new tab page
           "browser.newtabpage.activity-stream.feeds.topsites" = false;
@@ -77,45 +76,33 @@
           "datareporting.usage.uploadEnabled" = false;
           "devtools.onboarding.telemetry.logged" = false;
           "toolkit.telemetry.enabled" = false;
+          "toolkit.telemetry.prompted" = false;
           "toolkit.telemetry.archive.enabled" = false;
           "toolkit.telemetry.bhrPing.enabled" = false;
           "toolkit.telemetry.firstShutdownPing.enabled" = false;
           "toolkit.telemetry.hybridContent.enabled" = false;
           "toolkit.telemetry.newProfilePing.enabled" = false;
-          "toolkit.telemetry.prompted" = 2;
           "toolkit.telemetry.rejected" = true;
-          "toolkit.telemetry.reportingpolicy.firstRun" = false;
-          "toolkit.telemetry.server" = "";
           "toolkit.telemetry.shutdownPingSender.enabled" = false;
           "toolkit.telemetry.unified" = false;
           "toolkit.telemetry.unifiedIsOptIn" = false;
-          "toolkit.telemetry.updatePing.enabled" = false;
 
           # Enforce privacy
           "privacy.trackingprotection.enabled" = true;
           "privacy.trackingprotection.emailtracking.enabled" = true;
           "privacy.trackingprotection.socialtracking.enabled" = true;
+          "privacy.trackingprotection.pbmode.enabled" = true;
           "privacy.globalprivacycontrol.enabled" = true;
           "privacy.fingerprintingProtection" = true;
           "dom.security.https_only_mode" = true;
           "browser.contentblocking.category" = "strict";
           "places.history.enabled" = false;
+          "network.http.sendRefererHeader" = 0;
+          "network.cookie.cookieBehavior" = 1;
 
           # Clean-up on shutdown
-          "privacy.sanitize.sanitizeOnShutdown" = true;
-          "privacy.clearHistory.cookiesAndStorage" = true;
-          "privacy.clearHistory.HistoryFormDataAndDownloads" = true;
-          "privacy.clearHistory.formdata" = true;
-          "privacy.clearHistory.siteSettings" = true;
-          "privacy.clearSiteData.browsingHistoryAndDownloads" = true;
-          "privacy.clearSiteData.formdata" = true;
-          "privacy.clearSiteData.historyFormDataAndDownloads" = true;
-          "privacy.clearSiteDataHeader.cache.enabled" = true;
           "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = true;
           "privacy.clearOnShutdown_v2.formdata" = true;
-
-          # Disable Normandy (Mozilla's firefox remote control)
-          "app.normandy.first_run" = false;
 
           # Disable fx accounts
           "identity.fxaccounts.enabled" = false;
@@ -127,12 +114,7 @@
 
           # Set dark theme
           "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-          "browser.theme.content-theme" = 0;
-          "browser.theme.toolbar-theme" = 0;
           "layout.css.prefers-color-scheme.content-override" = 0;
-
-          # Disable translation panel
-          "browser.translations.panelShow" = false;
 
           # Remove unwanted suggestions and shortcuts from URL bar
           "browser.urlbar.suggest.recentsearches" = false;
@@ -155,6 +137,8 @@
           # Set default download directory
           "browser.download.dir" = "/home/${shared.username}/downloads";
           "browser.download.folderList" = 2;
+          "browser.download.autoOpenPreference" = false;
+          "browser.download.alwaysOpenPanel" = false;
 
           # Disable auto-fill on forms
           "dom.forms.autocomplete.formautofill" = false;
@@ -167,6 +151,12 @@
 
           # Enable UI customizations with `userChrome.css`
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+          # Performance
+          "browser.tabs.maxOpenBeforeWarn" = 25;
+          "full-screen-api.transition-duration.enter" = 0;
+          "full-screen-api.transition-duration.leave" = 0;
+          "browser.cache.offline.enable" = false;
         };
 
         bookmarks = [
