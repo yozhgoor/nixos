@@ -211,31 +211,32 @@
             format_up = "E: %ip (%speed)";
           };
         };
-        "battery all" = {
-          position = 3;
-          settings = {
-            format = "%status %percentage";
-            low_threshold = 15;
-          };
-        };
         "disk /" = {
-          position = 4;
+          position = 3;
           settings.format = "Disk %avail";
         };
         "cpu_usage" = {
-          position = 5;
+          position = 4;
           settings.format = "CPU %usage";
         };
         "load" = {
-          position = 6;
+          position = 5;
           settings.format = "Load %1min";
         };
         "memory" = {
-          position = 7;
+          position = 6;
           settings = {
             format = "MEM %used | %available";
             format_degraded = "MEMORY < %available";
             threshold_degraded = "1G";
+          };
+        };
+        "battery all" = {
+          position = 7;
+          settings = {
+            format = "%status %percentage";
+            low_threshold = 30;
+            threshold_type = "percentage";
           };
         };
         "time" = {

@@ -14,7 +14,6 @@
       };
 
       web-devicons.enable = true;
-      toggleterm.enable = true;
       lz-n.enable = true;
       bufferline.enable = true;
 
@@ -63,11 +62,6 @@
           yaml
         ];
       };
-
-      nvim-autopairs = {
-        enable = true;
-        settings.check_ts = true;
-      };
     };
 
     keymaps = [
@@ -80,17 +74,6 @@
 	        silent = true;
 	        noremap = true;
 	      };
-      }
-
-      # Toggle terminal
-      {
-        mode = "n";
-        key = "<leader><Up>";
-        action = ":ToggleTerm toggle<CR>";
-        options = {
-          silent = true;
-          noremap = true;
-        };
       }
     ];
   };

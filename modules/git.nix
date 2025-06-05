@@ -13,7 +13,10 @@
           excludesFiles = ".gitignore_global";
         };
         push.autoSetupRemote = true;
-        pull.rebase = false;
+        pull = {
+          ff = "only";
+          rebase = false;
+        };
         init.defaultBranch = "main";
       };
     };

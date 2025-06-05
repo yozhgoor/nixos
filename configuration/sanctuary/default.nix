@@ -40,6 +40,14 @@
     };
   };
 
+  services.libinput = {
+    enable = true;
+
+    touchpad = {
+      disableWhileTyping = true;
+    };
+  };
+
   home-manager.users.${shared.username} = {
     home.packages = with pkgs; [
       spotify

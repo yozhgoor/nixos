@@ -6,11 +6,12 @@
     home.packages = with pkgs; [
       rustup
       gcc
-      
+
       cargo-temp
       cargo-release
       cargo-rdme
       cargo-outdated
+      cargo-watch
     ];
   };
 
