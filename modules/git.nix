@@ -3,6 +3,10 @@
 
 {
   home-manager.users.${shared.username} = {
+    home.packages = with pkgs; [
+      tig
+    ];
+
     programs.git = {
       enable = true;
       userName = "yozhgoor";
