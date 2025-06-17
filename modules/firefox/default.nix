@@ -7,7 +7,6 @@
 
       profiles.default = {
         isDefault = true;
-        path = ".config/firefox/default";
 
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           darkreader
@@ -15,6 +14,7 @@
         ];
 
         search = {
+          force = true;
           default = "DuckDuckGo";
           privateDefault = "DuckDuckGo";
           engines = {
