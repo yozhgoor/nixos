@@ -42,6 +42,23 @@
           inputs.nur.modules.nixos.default
 	      ];
       };
+      "discovery" = let
+        shared = {
+          hostname = "discovery";
+          system = "x86-64-linux";
+          username = "yozhgoor";
+        };
+      in nixpkgs.lib.nixosSystem {
+        system = shared.system;
+        specialArgs = { inherit shared; };
+        modules = [
+          ./configuration/discovery
+
+          inputs.home-manager.nixosModules.home-manager
+          inputs.nixvim.nixosModules.nixvim
+          inputs.nur.modules.nixos.default
+        ];
+      };
       "nostromo" = let
         shared = {
           hostname = "nostromo";
