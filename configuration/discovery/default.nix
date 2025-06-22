@@ -12,10 +12,15 @@
     ../../modules/firefox.nix
   ];
 
+  hardware.graphics.enable = true;
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
   home-manager.users.${shared.username} = {
     home.packages = with pkgs; [
       spotify
       telegram-desktop
+      steam
     ];
   };
 
