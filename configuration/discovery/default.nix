@@ -12,9 +12,11 @@
     ../../modules/firefox.nix
   ];
 
-  hardware.graphics.enable = true;
-
   services.xserver.videoDrivers = [ "amdgpu" ];
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   home-manager.users.${shared.username} = {
     home.packages = with pkgs; [
