@@ -14,6 +14,12 @@
     ../../modules/mangohud.nix
   ];
 
+  boot.loader = {
+    systemd-boot.enable = true;
+    grub.enable = false;
+    efi.canTouchEfiVariables = true;
+  };
+
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   hardware.graphics = {

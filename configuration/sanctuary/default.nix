@@ -13,6 +13,12 @@
     ../../modules/firefox.nix
   ];
 
+  boot.loader = {
+    systemd-boot.enable = true;
+    grub.enable = false;
+    efi.canTouchEfiVariables = true;
+  };
+
   networking.networkmanager.enable = true;
   users.users.${shared.username}.extraGroups = [ "networkmanager" ];
 
