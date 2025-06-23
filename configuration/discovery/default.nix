@@ -10,9 +10,12 @@
     ../../modules/rust.nix
     ../../modules/markdown.nix
     ../../modules/firefox.nix
+    ../../modules/openrgb.nix
+    ../../modules/mangohud.nix
   ];
 
   services.xserver.videoDrivers = [ "amdgpu" ];
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
