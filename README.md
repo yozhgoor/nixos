@@ -12,6 +12,7 @@ The [`configuration`][configuration] directory contains configuration specific t
 
 - Configuration specific [nostromo][nostromo]: [`configuration/nostromo`][nostromo_path]
 - Configuration specific to [sanctuary][sanctuary]: [`configuration/sanctuary`][sanctuary_path]
+- Configuration specific to [discovery][discovery]: [`configuration/discovery`][discovery_path]
 - Default configuration: [`configuration/default.nix`][default_path]
 
 ### Modules
@@ -19,14 +20,17 @@ The [`configuration`][configuration] directory contains configuration specific t
 The [`modules`][modules] directory is related to the programs or services optionally imported.
 
 - Module related to [alacritty][alacritty]: [`modules/alacritty.nix`][alacritty_path]
-- Module related to [bash]: [`modules/bash.nix`][bash_path]
-- Module related to [git]: [`modules/git.nix`][git_path]
+- Module related to [bash][bash]: [`modules/bash.nix`][bash_path]
+- Module related to [firefox][firefox]: [`modules/firefox.nix`][firefox_path]
+- Module related to [git][git]: [`modules/git.nix`][git_path]
 - Module related to [home-manager][home-manager]: [`modules/home-manager.nix`][home-manager_path]
+- Module related to [i3][i3]: [`modules/i3.nix`][i3_path]
+- Module related to [mangohud][mangohud]: [`modules/mangohud.nix`][mangohud_path]
 - Module related to [markdown][markdown]: [`modules/markdown.nix`][markdown_path]
 - Module related to [neovim][neovim]: [`modules/neovim`][neovim_path]
+- Module related to [openrgb][openrgb]: [`modules/openrgb.nix`][openrgb_path]
 - Module related to [rust][rust]: [`modules/rust.nix`][rust_path]
 - Module related to [sway][sway]: [`modules/sway`][sway_path]
-- Module related to [i3][i3]: [`modules/i3.nix`][i3_path]
 
 ## Usage
 
@@ -90,23 +94,31 @@ nix-store --optimise
 [nostromo_path]: https://github.com/yozhgoor/nixos/blob/main/configuration/nostromo
 [sanctuary]: https://marvel.fandom.com/wiki/Sanctuary_(Vehicle)
 [sanctuary_path]: https://github.com/yozhgoor/nixos/blob/main/configuration/sanctuary
+[discovery]: https://memory-alpha.fandom.com/wiki/USS_Discovery
+[discovery_path]: https://github.com/yozhgoor/nixos/blob/main/configuration/discovery
 [default_path]: https://github.com/yozhgoor/nixos/blob/main/configuration/default.nix
 [modules]: https://github.com/yozhgoor/nixos/blob/main/modules
 [alacritty]: https://alacritty.org
 [alacritty_path]: https://github.com/yozhgoor/nixos/blob/main/modules/alacritty.nix
 [bash]: https://www.gnu.org/software/bash
 [bash_path]: https://github.com/yozhgoor/nixos/blob/main/modules/bash.nix
+[firefox]: https://www.mozilla.org/en-US/firefox/new
+[firefox_path]: https://github.com/yozhgoor/nixos/blob/main/modules/firefox.nix
 [git]: https://git-scm.com
 [git_path]: https://github.com/yozhgoor/nixos/blob/main/modules/git.nix
 [home-manager]: https://github.com/nix-community/home-manager
 [home-manager_path]: https://github.com/yozhgoor/nixos/blob/main/modules/home-manager.nix
+[i3]: https://i3wm.org
+[i3_path]: https://github.com/yozhgoor/nixos/blob/main/modules/i3.nix
+[mangohud]: https://github.com/flightlessmango/MangoHud
+[mangohud_path]: https://github.com/yozhgoor/nixos/blob/main/modules/mangohud.nix
 [markdown]: https://en.wikipedia.org/wiki/Markdown
 [markdown_path]: https://github.com/yozhgoor/nixos/blob/main/modules/markdown.nix
 [neovim]: https://neovim.io
 [neovim_path]: https://github.com/yozhgoor/nixos/blob/main/modules/neovim
+[openrgb]: https://openrgb.org
+[openrgb_path]: https://github.com/yozhgoor/nixos/blob/main/modules/openrgb.nix
 [rust]: https://www.rust-lang.org/
 [rust_path]: https://github.com/yozhgoor/nixos/blob/main/modules/rust.nix
 [sway]: https://swaywm.org
 [sway_path]: https://github.com/yozhgoor/nixos/blob/main/modules/sway
-[i3]: https://i3wm.org
-[i3_path]: https://github.com/yozhgoor/nixos/blob/main/modules/i3.nix
