@@ -10,13 +10,10 @@
 
   users.users.${shared.username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" ];
+    extraGroups = [ "wheel" "video" ];
   };
 
-  boot.loader.grub.enable = false;
-
   networking.hostName = "${shared.hostname}";
-  networking.networkmanager.enable = true;
   networking.firewall.enable = true;
   networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
@@ -40,6 +37,8 @@
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nixpkgs.config.allowUnfree = true;
 
   system.autoUpgrade = {
     enable = true;
