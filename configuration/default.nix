@@ -13,12 +13,6 @@
     extraGroups = [ "wheel" "video" ];
   };
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    grub.enable = false;
-    efi.canTouchEfiVariables = true;
-  };
-
   networking.hostName = "${shared.hostname}";
   networking.firewall.enable = true;
   networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
