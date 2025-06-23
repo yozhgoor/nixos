@@ -11,16 +11,15 @@
       horizontal
       hud_compact
       font_size=16
+      background_alpha=0.0
 
       fps
       cpu_stats
       gpu_stats
       ram
       vram
-      time
 
       frametime=0
-      time_format=%H:%M
     '';
 
     home.file.".config/MangoHud/presets.conf".text = ''
