@@ -25,9 +25,6 @@
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = false;
-    settings = {
-      General.ControllerMode = "bredr";
-    };
   };
 
   services.tlp = {
@@ -58,6 +55,8 @@
     home.packages = with pkgs; [
       spotify
       telegram-desktop
+      flameshot
+      discord
     ];
   };
 
