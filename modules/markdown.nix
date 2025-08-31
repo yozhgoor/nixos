@@ -20,6 +20,16 @@
         };
         dash.width = 100;
         sign.enable = false;
+        latex = {
+          enabled = true;
+          render_modes = false;
+          converter = "latex2text";
+          highlight = "RenderMarkdownMath";
+          position = "above";
+          top_pad = 0;
+          bottom_pad = 0;
+          virtual = false;
+        };
       };
     };
     autoCmd = [
@@ -38,6 +48,11 @@
           '';
         };
       }
+    ];
+  };
+  home-manager.users.${shared.username} = {
+    home.packages = with pkgs; [
+      python3Packages.pylatexenc
     ];
   };
 }
