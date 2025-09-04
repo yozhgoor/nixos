@@ -82,6 +82,30 @@
           noremap = true;
         };
       }
+      {
+        key = "Q";
+        action = "<Nop>";
+        options = {
+          silent = true;
+          noremap = true;
+        };
+      }
+      {
+        key = "<PageUp>";
+        action = "<Nop>";
+        options = {
+          silent = true;
+          noremap = true;
+        };
+      }
+      {
+        key = "<PageDown>";
+        action = "<Nop>";
+        options = {
+          silent = true;
+          noremap = true;
+        };
+      }
     ];
 
     autoCmd = [
@@ -116,6 +140,19 @@
               vim.opt_local.tabstop = 2
               vim.opt_local.softtabstop = 2
               vim.opt_local.shiftwidth = 2
+            end
+          '';
+        };
+      }
+
+      {
+        event = "FileType";
+        pattern = [ "markdown" "rust"];
+        callback = {
+          __raw = ''
+            function()
+              vim.cmd("highlight Invalid ctermbg=red guibg=red")
+              vim.fn.matchadd("Invalid", [[\s*\t\s*\|\s*\t\s*\|\s\+$\|[^\x00-\xff]\+]])
             end
           '';
         };
