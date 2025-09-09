@@ -40,8 +40,8 @@
           # Media keys
           "XF86AudioRaiseVolume" = "exec --no-startup-id ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+";
           "XF86AudioLowerVolume" = "exec --no-startup-id ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-";
-          "XF86AudioMute" = "exec --no-startup-id ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_SINK@ toggle";
-          "XF86AudioMicMute" = "exec --no-startup-id ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_SOURCE@ toggle";
+          "XF86AudioMute" = "exec --no-startup-id ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          "XF86AudioMicMute" = "exec --no-startup-id ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
           "XF86MonBrightnessUp" = "exec --no-startup-id ${pkgs.brightnessctl}/bin/brightnessctl set 5%+";
           "XF86MonBrightnessDown" = "exec --no-startup-id ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
 
@@ -85,6 +85,18 @@
           "${mod}+Shift+8" = "move container to workspace number 8";
           "${mod}+Shift+9" = "move container to workspace number 9";
           "${mod}+Shift+0" = "move container to workspace number 10";
+
+          "${mod}+r" = "mode resize";
+        };
+
+        modes = {
+          resize = {
+            Escape = "mode default";
+            Left = "resize shrink width 10 px";
+            Down = "resize shrink height 10 px";
+            Up = "resize grow height 10 px";
+            Right =  "resize grow width 10 px";
+          };
         };
 
         window = {

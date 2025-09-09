@@ -147,7 +147,7 @@
 
       {
         event = "FileType";
-        pattern = [ "markdown" "rust"];
+        pattern = [ "markdown" "rust" "toml" ];
         callback = {
           __raw = ''
             function()
